@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "516787270927",
+    "firebase_url": "https://call-logger-c2a88.firebaseio.com",
+    "project_id": "call-logger-c2a88",
+    "storage_bucket": "call-logger-c2a88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516787270927:android:0f56a80d0639e861",
+        "android_client_info": {
+          "package_name": "com.example.calllogger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516787270927-18csordu5fd7d02drsas932ljcslmv7o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.calllogger",
+            "certificate_hash": "bb20bd35f8529994055af24c8948b4e9fddbb1f9"
+          }
+        },
+        {
+          "client_id": "516787270927-coup4vfo7cskvrvdcct14fi9nr4i9n2m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtCfjGcHg2Y0Mleea4tlpMYuVAjhCKkNI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516787270927-coup4vfo7cskvrvdcct14fi9nr4i9n2m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
