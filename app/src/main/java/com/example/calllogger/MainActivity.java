@@ -1,45 +1,70 @@
 package com.example.calllogger;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.provider.CallLog;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.calllogger.Model.Calls;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import com.example.calllogger.Fragment.LoginFragment;
+import com.example.calllogger.Fragment.OpeningFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    Calls currentCall;
+   /* Calls currentCall;
 
-    List<Calls> callList = new ArrayList<>() ;
+    List<Calls> callList = new ArrayList<>() ;*/
 
+    private FirebaseAuth mAuth;
+    public String TAG = "FirebaseStatus";
+    String email,password;
+
+
+
+    OpeningFragment openingFragment;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+
         setContentView(R.layout.activity_main);
 
 
+        openingFragment = new OpeningFragment();
 
-        TextView textView;
 
-        textView = findViewById(R.id.txtView);
+        FragmentManager fragManager = getSupportFragmentManager();
+        FragmentTransaction fragTransaction = fragManager.beginTransaction();
+        fragTransaction.replace(R.id.fragMain,openingFragment);
+        fragTransaction.addToBackStack(null);
+        fragTransaction.commit();
 
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+
+
+
+
+
+
+
+        /*if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.READ_CALL_LOG)) {
                 ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_CALL_LOG}, 1);
             } else {
@@ -47,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
             }
         } else {
 
-        }
+        }*/
 
     }
 
-    @Override
+  /*  @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
         switch (requestCode) {
@@ -73,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String getCallDetails() {
         StringBuffer sb = new StringBuffer();
-        Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
+        @SuppressLint("MissingPermission") Cursor managedCursor = getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
         int number = ((Cursor) managedCursor).getColumnIndex(CallLog.Calls.NUMBER);
         int type = ((Cursor) managedCursor).getColumnIndex(CallLog.Calls.TYPE);
         int date = ((Cursor) managedCursor).getColumnIndex(CallLog.Calls.DATE);
@@ -115,5 +140,7 @@ public class MainActivity extends AppCompatActivity {
         }
         managedCursor.close();
         return sb.toString();
-    }
+    }*/
+
+
 }

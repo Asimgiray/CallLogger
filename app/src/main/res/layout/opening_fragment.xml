@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/app_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call Logger"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/red"
+        android:textSize="@dimen/_30ssp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:fontFamily="sans-serif-medium"/>
+
+    <ImageView
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/icon_logo"/>
+
+
+    <TextView
+        android:id="@+id/txtStartLogging"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/button_background"
+        android:text="Start Logging"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_100sdp"
+        android:paddingStart="@dimen/_40sdp"
+        android:paddingEnd="@dimen/_40sdp"
+        android:paddingTop="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_15sdp"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+
+
+
+</LinearLayout>
