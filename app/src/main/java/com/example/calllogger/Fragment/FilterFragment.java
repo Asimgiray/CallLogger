@@ -8,6 +8,7 @@ import android.provider.CallLog;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.example.calllogger.Adapter.CallAdapter;
 import com.example.calllogger.Model.Calls;
 import com.example.calllogger.R;
 import com.google.firebase.database.DataSnapshot;
@@ -37,6 +39,11 @@ public class FilterFragment extends Fragment {
 
     Calls searchCall;
     List<Calls> searchList = new ArrayList<>();
+    List<Calls> filterResultList = new ArrayList<>();
+
+    RecyclerView rvSearchResults;
+    EditText edtLocation;
+    LinearLayout linSearchLocation;
 
 
     @Nullable
@@ -46,11 +53,41 @@ public class FilterFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.filter_fragment,container,false);
         ctx = getContext();
 
+        getCallDetails();
+
         generalView = rootView;
 
-        
+        rvSearchResults = generalView.findViewById(R.id.rvSearchResults);
+        edtLocation = generalView.findViewById(R.id.edtLocation);
+        linSearchLocation = generalView.findViewById(R.id.linSearchLocation);
 
 
+
+        linSearchLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                String searchLocation = edtLocation.getText().toString();
+
+                Log.i("searchText", " : " + searchLocation);
+                Log.i("searchList", " : " + searchList.size());
+
+                for(int i=0; i < searchList.size(); i++)
+                {
+                    if(searchLocation.equals(searchList.get(i).getLocation()))
+                    {
+                        filterResultList.add(searchList.get(i));
+                    }
+                }
+
+
+                CallAdapter itemArrayAdapter = new CallAdapter(R.layout.row_call_detail, filterResultList);
+                rvSearchResults.setLayoutManager(new LinearLayoutManager(ctx));
+                rvSearchResults.setAdapter(itemArrayAdapter);
+
+            }
+        });
 
         return  rootView;
 
@@ -94,7 +131,6 @@ public class FilterFragment extends Fragment {
 
             searchCall = new Calls(phNumber,dir,dateString,callDuration,location);
             searchList.add(searchCall);
-
 
 
             //Log.i("CallDetail", "\nPhone Number: " + phNumber + "\nCallType: " + dir + "\nCall Date: " + dateString + "\nCall Duration: " + callDuration + " sec" + "\nCall Location: " + location);

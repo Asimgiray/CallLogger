@@ -70,6 +70,12 @@ public class LoginFragment extends Fragment {
                 Log.i("isValidEmail", " " + isValidEmailAddress(email));
 
 
+                if(email.length() < 6)
+                {
+                    Toast.makeText(ctx,"Password must be longer than 6 character", Toast.LENGTH_LONG).show();
+                }
+
+
                 if(isValidEmailAddress(email))
                 {
                     createUser(email,password);
