@@ -34,9 +34,6 @@ public class FilterFragment extends Fragment {
     View generalView;
     Context ctx;
 
-    EditText edtLocation;
-    LinearLayout linSearchLocation;
-    RecyclerView rvSearchResults;
 
     Calls searchCall;
     List<Calls> searchList = new ArrayList<>();
@@ -51,9 +48,7 @@ public class FilterFragment extends Fragment {
 
         generalView = rootView;
 
-        edtLocation = generalView.findViewById(R.id.edtLocation);
-        linSearchLocation = generalView.findViewById(R.id.linSearchLocation);
-        rvSearchResults = generalView.findViewById(R.id.rvSearchResults);
+        
 
 
 
