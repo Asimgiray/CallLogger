@@ -11,6 +11,9 @@ public class Calls {
     private String callDuration;
     private String location;
 
+    public Calls() {
+
+    }
 
     public Calls(String phNumber, String callType, String callDate, String callDuration, String location) {
         this.phNumber = phNumber;

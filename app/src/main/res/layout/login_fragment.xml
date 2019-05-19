@@ -47,6 +47,7 @@
         android:id="@+id/edtEmail"
         android:layout_gravity="center_horizontal"
         android:hint="E-mail"
+        android:inputType="textEmailAddress"
         android:textColor="@color/black"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="@dimen/_180sdp"
